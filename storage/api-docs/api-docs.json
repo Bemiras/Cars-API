@@ -1,0 +1,471 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel Cars Api Demo Documentation",
+        "description": "Simple Cars Api Laravel",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/cars": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "List of cars",
+                "description": "List of cars",
+                "operationId": "listCars",
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "TOYOTA"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "big"
+                                        },
+                                        "created_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        },
+                                        "updated_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Add new car",
+                "description": "Add Car",
+                "operationId": "addCar",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Toyota",
+                                    "type": "big"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Toyota"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "big"
+                                        },
+                                        "created_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        },
+                                        "updated_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        },
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Add new car success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error: Unprocessable Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The name field is required"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Delete first car where type=='big'",
+                "description": "Delete first car where type='big'",
+                "operationId": "deleteFirstBig",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "First big car delete success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cars/{id}": {
+            "put": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Update car",
+                "description": "Update Car",
+                "operationId": "updateCar",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Toyota",
+                                    "type": "big"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Toyota"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "big"
+                                        },
+                                        "created_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        },
+                                        "updated_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Update car"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error: Not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No query results for model [App\\\\Models\\\\Cars] {id}"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Delete car",
+                "description": "Delete Car",
+                "operationId": "deleteCar",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Delete car success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error: Not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No query results for model [App\\\\Models\\\\Cars] {id}"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cars/firstBigUppercase": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Get first car for table where type=='big', name uppercase",
+                "description": "Get first car where type='big' name uppercase",
+                "operationId": "getFirstBigUppercase",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "TOYOTA"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "big"
+                                        },
+                                        "created_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        },
+                                        "updated_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cars/firstBigLowercase": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Get first car for table where type=='big', name lowercase",
+                "description": "Get first car where type='big' name lowercase",
+                "operationId": "getFirstBigLowercase",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "toyota"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "big"
+                                        },
+                                        "created_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        },
+                                        "updated_at": {
+                                            "type": "number",
+                                            "example": "2022-02-21 14:14:31"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Cars": {
+                "title": "Model",
+                "description": "Cars model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of car",
+                        "type": "string",
+                        "example": "Toyota"
+                    },
+                    "type": {
+                        "title": "Type",
+                        "description": "Type of car",
+                        "type": "string",
+                        "example": "big"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Cars"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Cars",
+            "description": "API Endpoints of Cars"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
