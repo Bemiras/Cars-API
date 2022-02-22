@@ -15,18 +15,14 @@ App in server:
 http://laravel-cars-api.herokuapp.com/api/documentation
 
 ## Task Requiremnts:
-### 1. Database cars have:
-- id
-- name (string)
-- type (string, max:10)
-- 
-
-## Assumption
-
-### The Users:
-- 
-
-
+### 1. User can execute using endpoint:
+- add new car
+- update car
+- delete car
+- list of cars
+- show first car where type='big', name uppercase
+- show first car where type='big', name lowercase
+- delete first car where type='big
 
 ## Language, Framework, and Datastore.
 - This System is implemented using php laravel framework
@@ -34,11 +30,12 @@ http://laravel-cars-api.herokuapp.com/api/documentation
 - The Cart data is persisted in the Database to be in-compliance with the RESTfulness Guidelines and best practices and avoid using the sessions to save the state of the user
 
 
-
 ## Documentation API:
 
 #### Cars
+![swagger](https://user-images.githubusercontent.com/55050773/155113628-d5a7b7d0-2034-4b5b-8f90-a8180ac9c1a6.jpg)
 
+![model](https://user-images.githubusercontent.com/55050773/155113752-e1571a99-59fb-48b5-b08b-073dc5898290.jpg)
 
 
 ## Installation
